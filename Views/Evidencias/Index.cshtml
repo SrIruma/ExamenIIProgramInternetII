@@ -1,0 +1,39 @@
+﻿@model List<ExamenII.Models.Evidencia>
+
+<h2>Evidencias</h2>
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-3">
+
+            <div class="card shadow">
+
+                <img src="@item.ImagenPath"
+                     class="card-img-top"
+                     style="height:200px; object-fit:cover;" />
+
+                <div class="card-body">
+
+                    <h5>@item.Titulo</h5>
+                    <p>@item.Descripcion</p>
+
+                    <small>@item.FechaRegistro</small>
+
+                    @if (User.IsInRole("Administrador"))
+                    {
+                        <a class="btn btn-danger btn-sm"
+                               href="/Evidencias/Delete/@item.Id">
+                            Eliminar
+                        </a>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>

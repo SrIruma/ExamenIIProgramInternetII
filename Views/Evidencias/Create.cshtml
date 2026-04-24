@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Nueva Evidencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center mt-4">
+
+    <div class="col-md-6">
+
+        <div class="card shadow p-4">
+
+            <h3 class="mb-3">Nueva Evidencia</h3>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <div>@error.ErrorMessage</div>
+                    }
+                </div>
+            }
+
+            <form method="post" enctype="multipart/form-data" asp-controller="Evidencias" asp-action="Create">
+
+                <div class="mb-3">
+                    <label>Título</label>
+                    <input class="form-control" name="titulo" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Descripción</label>
+                    <textarea class="form-control" name="descripcion" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Imagen (JPG, PNG)</label>
+                    <input class="form-control"
+                           type="file"
+                           name="imagen"
+                           accept=".jpg,.jpeg,.png"
+                           required />
+                </div>
+
+                <button class="btn btn-primary w-100">
+                    Guardar Evidencia
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

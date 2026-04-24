@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center mt-5">
+
+    <div class="col-md-4">
+
+        <div class="card shadow p-4">
+
+            <h3 class="text-center mb-3">📝 Registro</h3>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form method="post">
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input class="form-control" name="email" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Contraseña</label>
+                    <input class="form-control" type="password" name="password" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Confirmar Contraseña</label>
+                    <input class="form-control" type="password" name="confirmPassword" />
+                </div>
+
+                <button class="btn btn-success w-100">
+                    Registrarse
+                </button>
+
+            </form>
+
+            <hr />
+
+            <small class="text-muted">
+                ✔ Mínimo 6 caracteres<br>
+                ✔ 1 mayúscula<br>
+                ✔ 1 minúscula<br>
+                ✔ 1 número o símbolo
+            </small>
+
+        </div>
+
+    </div>
+</div>
